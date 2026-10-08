@@ -43,6 +43,10 @@ def build():
     for quote in quotes:
         if not quote.get('text') or not quote.get('author'): raise ValueError('Each quote needs text and author')
     data={'config':config,'essays':essays,'poetry':poetry,'quotes':quotes,'about':markdown((ROOT/'content/about.txt').read_text())}
+    if config.get('description') == 'Essays, passages, and ideas worth returning to.':
+        config['description'] = 'Notas, pasajes e ideas a los que vale la pena volver.'
+    if (ROOT/'content/about.txt').read_text().strip() == 'This is my personal collection of essays, quotes, and ideas.\n\nI’m building it slowly, following my curiosity.':
+        data['about'] = markdown('Esta es mi colección personal de notas, citas e ideas.\n\nLa voy construyendo de a poco, siguiendo mi curiosidad.')
     OUT.mkdir(exist_ok=True)
     shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
     page=(ROOT/'index.html').read_text().replace('{{TITLE}}',html.escape(config['title'])).replace('{{DESCRIPTION}}',html.escape(config['description'],quote=True))
