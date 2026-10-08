@@ -35,3 +35,16 @@ h1{font-size:clamp(30px,4.2vw,40px);line-height:1.2;letter-spacing:-1px;margin-b
 article>.publication-meta{margin:12px 0 28px}
 .empty{padding:8px 0 28px}
 @media(max-width:600px){header{padding:24px 0 22px}main{padding-top:32px}h1{font-size:30px}.quote blockquote{font-size:19px;line-height:1.65}.quote figcaption{font-size:17px}.quote-source{font-size:15px}}
+
+/* Citas compactas para colecciones extensas. */
+.quote{padding:18px 0 20px}
+.quote blockquote{font-size:18px;line-height:1.5;margin-bottom:10px}
+.quote figcaption{font-size:16px;line-height:1.4}
+.quote-author,.quote-source{display:inline}
+.quote-source{font-size:inherit;margin:0}
+.quote-attribution-separator{color:var(--muted)}
+.quote-bottom{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-top:10px}
+.quote-bottom .quote-tags{margin:0;gap:5px}
+.quote-bottom .publication-meta{margin:0 0 0 auto;gap:6px}
+.quote-tags .tag{padding:2px 7px}
+@media(max-width:600px){.quote blockquote{font-size:17px;line-height:1.5}.quote figcaption{font-size:15px}.quote-bottom{align-items:flex-start}.quote-bottom .publication-meta{margin-left:0}}
