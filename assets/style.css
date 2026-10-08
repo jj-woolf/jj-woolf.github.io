@@ -15,3 +15,23 @@
 .quote .publication-meta{margin-top:16px}
 article>.publication-meta{font-size:11px}
 @media(max-width:600px){.quote figcaption,.entry p.poem-list-author{font-size:15px}.poem-author{font-size:18px}}
+
+/* Espaciado y jerarquía editorial aprobados. */
+header{padding:32px 0 26px}
+main{padding:44px 0 64px;min-height:calc(100svh - 120px)}
+h1{font-size:clamp(30px,4.2vw,40px);line-height:1.2;letter-spacing:-1px;margin-bottom:24px}
+.tools{padding-bottom:16px}
+.quote{padding:28px 0 32px}
+.quote blockquote{font-size:20px;line-height:1.65;margin-bottom:18px}
+.quote figcaption{font-size:18px;line-height:1.45}
+.quote-author,.quote-source{display:block}
+.quote-source{font-size:16px;margin-top:3px}
+.quote-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.quote-tags .tag{margin:0;padding:3px 8px;line-height:1.5}
+.publication-meta,article>.publication-meta{font-size:12px;letter-spacing:0}
+.quote .publication-meta{margin-top:10px}
+.entry{padding:22px 0 24px}
+.entry .publication-meta{margin-top:10px}
+article>.publication-meta{margin:12px 0 28px}
+.empty{padding:8px 0 28px}
+@media(max-width:600px){header{padding:24px 0 22px}main{padding-top:32px}h1{font-size:30px}.quote blockquote{font-size:19px;line-height:1.65}.quote figcaption{font-size:17px}.quote-source{font-size:15px}}
