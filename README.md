@@ -71,3 +71,21 @@ Open `http://localhost:8000`. Rebuild after editing content. GitHub runs the bui
 ## How we can work together
 
 Give me an essay, a batch of quotes, or describe a feature you want. We can add topic pages, reading lists, images, a different layout, or other sections while keeping existing content. After this folder is connected to your GitHub repository, future changes can be committed and published from that checkout when GitHub access is available.
+
+## Publish a poem
+
+Create a file in `content/poetry`, such as `poem-title.md`:
+
+```text
+---
+title: Poem title
+author: Author name
+---
+
+First line of the poem
+Second line of the poem
+
+A new stanza begins here
+```
+
+Title and author are separate required fields. The poem text preserves line breaks, blank lines, and indentation. Poetry is listed by title, with the author below. Readers can search titles and authors or sort by either.

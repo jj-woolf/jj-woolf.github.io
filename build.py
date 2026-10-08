@@ -31,10 +31,18 @@ def build():
         meta={k.strip():v.strip() for k,v in meta.items()}
         if not meta.get('title') or not meta.get('date'): raise ValueError(f'{path.name}: title and date required')
         essays.append({'id':path.stem, **meta, 'body':markdown(body)})
+    poetry=[]
+    for path in sorted((ROOT/'content/poetry').glob('*.md')):
+        raw=path.read_text()
+        if not raw.startswith('---\n'): raise ValueError(f'{path.name}: metadata must start with ---')
+        _, metadata, body=raw.split('---', 2)
+        meta={k.strip():v.strip() for k,v in (line.split(':',1) for line in metadata.strip().splitlines())}
+        if not meta.get('title') or not meta.get('author'): raise ValueError(f'{path.name}: title and author required')
+        poetry.append({'id':path.stem, 'title':meta['title'], 'author':meta['author'], 'text':body.strip('\n')})
     quotes=json.loads((ROOT/'content/quotes.json').read_text())
     for quote in quotes:
         if not quote.get('text') or not quote.get('author'): raise ValueError('Each quote needs text and author')
-    data={'config':config,'essays':essays,'quotes':quotes,'about':markdown((ROOT/'content/about.txt').read_text())}
+    data={'config':config,'essays':essays,'poetry':poetry,'quotes':quotes,'about':markdown((ROOT/'content/about.txt').read_text())}
     OUT.mkdir(exist_ok=True)
     shutil.copytree(ROOT/'assets',OUT/'assets',dirs_exist_ok=True)
     page=(ROOT/'index.html').read_text().replace('{{TITLE}}',html.escape(config['title'])).replace('{{DESCRIPTION}}',html.escape(config['description'],quote=True))
