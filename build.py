@@ -38,7 +38,7 @@ def build():
         _, metadata, body=raw.split('---', 2)
         meta={k.strip():v.strip() for k,v in (line.split(':',1) for line in metadata.strip().splitlines())}
         if not meta.get('title') or not meta.get('author'): raise ValueError(f'{path.name}: title and author required')
-        poetry.append({'id':path.stem, 'title':meta['title'], 'author':meta['author'], 'text':body.strip('\n')})
+        poetry.append({'id':path.stem, 'title':meta['title'], 'author':meta['author'], 'date':meta.get('date',''), 'uploaded_by':meta.get('uploaded_by',''), 'text':body.strip('\n')})
     quotes=json.loads((ROOT/'content/quotes.json').read_text())
     for quote in quotes:
         if not quote.get('text') or not quote.get('author'): raise ValueError('Each quote needs text and author')

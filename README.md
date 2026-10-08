@@ -89,3 +89,23 @@ A new stanza begins here
 ```
 
 Title and author are separate required fields. The poem text preserves line breaks, blank lines, and indentation. Poetry is listed by title, with the author below. Readers can search titles and authors or sort by either.
+
+## Fecha y persona que agregó cada entrada
+
+La interfaz muestra estos datos en una línea discreta: `8 oct 2026 — Juan`. Son manuales. No se asignan nombres ni fechas a entradas antiguas que no los tengan. El autor de una cita o poema sigue siendo el campo `author`; quien lo agregó se indica en `uploaded_by`.
+
+En notas y poemas, agregá estos campos al encabezado entre las líneas `---`:
+
+```text
+date: 2026-10-08
+uploaded_by: Juan
+```
+
+En las citas, agregá estos campos al objeto de la cita, separados por comas como los demás:
+
+```json
+"date": "2026-10-08",
+"uploaded_by": "Juan"
+```
+
+Usá fechas con formato AAAA-MM-DD. Para las notas reutilizá el campo `date` que ya existe. En poemas y citas ambos campos son opcionales, para mantener compatibles las entradas existentes.
