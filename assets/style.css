@@ -5,3 +5,13 @@
 .poem-author{font:16px system-ui,sans-serif;color:var(--muted);margin:0 0 36px}.poem-text{white-space:pre-wrap;overflow-wrap:anywhere;font:19px/1.85 Georgia,'Times New Roman',serif;tab-size:4} @media(max-width:600px){header{flex-wrap:wrap}.header-right{flex:1;justify-content:flex-end}nav{gap:12px}.poem-text{font-size:17px}}
 
 .publication-meta{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-top:13px;font:12px/1.6 system-ui,sans-serif;color:var(--muted);letter-spacing:.15px}.publication-meta time{font:inherit;padding:0;margin:0;white-space:normal}.publication-separator{opacity:.6}article>.publication-meta{margin:18px 0 32px}.poem-author{margin-bottom:0}.poem-text{margin-top:32px}.quote .publication-meta{margin-top:18px}
+
+/* Obra y atribución primero; datos de publicación en segundo plano. */
+.quote figcaption{font:16px/1.6 Georgia,'Times New Roman',serif;color:var(--ink)}
+.quote figcaption cite{font-style:italic}
+.entry p.poem-list-author{font:16px/1.6 Georgia,'Times New Roman',serif;color:var(--ink)}
+.poem-author{font:20px/1.6 Georgia,'Times New Roman',serif;color:var(--ink)}
+.publication-meta{font-size:11px;color:var(--muted);letter-spacing:.2px}
+.quote .publication-meta{margin-top:16px}
+article>.publication-meta{font-size:11px}
+@media(max-width:600px){.quote figcaption,.entry p.poem-list-author{font-size:15px}.poem-author{font-size:18px}}
