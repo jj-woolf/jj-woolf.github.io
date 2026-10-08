@@ -1,5 +1,5 @@
 ---
-title: Oh Westerst wind
+title: Western wind
 author: Anónimo
 date: 2026-10-08
 uploaded_by: Juan
