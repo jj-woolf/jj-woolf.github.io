@@ -17,9 +17,6 @@ function render(){
  const route=location.hash.slice(1)||'essays';const [section,id]=route.split('/');
  document.querySelectorAll('nav a').forEach(a=>{if(a.hash==='#'+section)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
  document.title=data.config.title;
- if(section==='about'){
-  main.innerHTML=`<article><div class="eyebrow">La persona detrás de estas páginas</div><h1>Acerca de</h1><p class="meta">${escapeHTML(data.config.author)}</p><div class="body">${data.about}</div></article>`;return;
- }
  if(section==='poetry'&&id){
   const poem=data.poetry.find(p=>p.id===decodeURIComponent(id));
   if(!poem){main.innerHTML='<h1>No se encontró el poema</h1><p><a href="#poetry">Volver a poesía →</a></p>';return;}
@@ -33,7 +30,8 @@ function render(){
   main.innerHTML=`<article><a class="back" href="#essays">← Todas las notas</a><h1>${escapeHTML(essay.title)}</h1>${publicationDetails(essay)}<div class="body">${essay.body}</div></article>`;return;
  }
  const kind=section==='poetry'?'poetry':section==='quotes'?'quotes':'essays';
- main.innerHTML=kind==='poetry'?`<div class="eyebrow">Una colección de poemas</div><h1>Poesía</h1><p class="intro">Poemas para leer y volver a leer.</p>${controls(kind)}`:`<div class="eyebrow">${kind==='essays'?'Un lugar para pensar en voz alta':'Una colección de citas'}</div><h1>${kind==='essays'?'Notas':'Palabras para guardar'}</h1><p class="intro">${kind==='essays'?escapeHTML(data.config.description==='Essays, passages, and ideas worth returning to.'?'Notas, pasajes e ideas a los que vale la pena volver.':data.config.description):'Pasajes que perduran. Ideas para revisitar. Una colección reunida en el camino.'}</p>${controls(kind)}`;
+ const heading=kind==='poetry'?'Buena poesía':kind==='quotes'?'La pared de Seymour y Buddy':'<em>La Fiche</em>';
+ main.innerHTML=`<h1>${heading}</h1>${controls(kind)}`;
  function update(){
   const query=document.querySelector('#search').value.toLowerCase().trim();const sort=document.querySelector('#sort').value;
   let items=data[kind].filter(item=>[item.title,item.summary,item.text,item.author,item.source,item.uploaded_by,...(item.tags||[])].filter(Boolean).join(' ').toLowerCase().includes(query));
