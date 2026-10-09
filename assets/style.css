@@ -50,3 +50,5 @@ article>.publication-meta{margin:12px 0 28px}
 @media(max-width:600px){.quote blockquote{font-size:17px;line-height:1.5}.quote figcaption{font-size:15px}.quote-bottom{align-items:flex-start}.quote-bottom .publication-meta{margin-left:0}}
 
 .quote blockquote{white-space:pre-wrap;overflow-wrap:anywhere}
+
+.quote-stanza{display:block;white-space:pre-wrap}.quote-stanza+.quote-stanza{margin-top:8px}
