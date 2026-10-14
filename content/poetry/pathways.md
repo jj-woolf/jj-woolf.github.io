@@ -1,6 +1,6 @@
 ---
 title: Pathways
-author: Rilke
+author: Rainer Maria Rilke
 date: 2026-10-14
 uploaded_by: Juan
 ---
